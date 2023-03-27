@@ -6,7 +6,7 @@ const Header = () => {
     const [toggle, setToggle] = useState(false)
     return (        
             <nav className='bg-primary text-white'>                
-                <section className='max-w-[1200px] mx-auto flex items-center justify-between p-4'>
+                <section className='max-w-[1240px] mx-auto flex items-center justify-between p-4'>
                     <div>
                         <img src={logo} alt="logo" />
                     </div>
