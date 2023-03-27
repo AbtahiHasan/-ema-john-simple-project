@@ -5,7 +5,7 @@ import logo from './../../assets/images/Logo.svg';
 const Header = () => {
     const [toggle, setToggle] = useState(false)
     return (        
-            <nav className='bg-primary text-white'>                
+            <nav className='bg-primary text-white fixed z-50 top-0 left-0 right-0'>                
                 <section className='max-w-[1240px] mx-auto flex items-center justify-between p-4'>
                     <div>
                         <img src={logo} alt="logo" />
