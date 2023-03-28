@@ -1,10 +1,11 @@
 const Summary = ({cart}) => {
-    console.log(cart)
     let totalPrice = 0;
     let shipingPrice = 0;
-
+    let quantity = 0;
+    
     for(const product of cart) {
-        totalPrice += product.price;
+        quantity += product.quantity
+        totalPrice += product.price * quantity;
         shipingPrice += product.shipping;
     }
     const tax = totalPrice * 7 / 100;
