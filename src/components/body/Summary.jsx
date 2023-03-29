@@ -4,7 +4,7 @@ const Summary = ({cart}) => {
     let quantity = 0;
     
     for(const product of cart) {
-        quantity += product.quantity
+        quantity += product.quantity;
         totalPrice += product.price * quantity;
         shipingPrice += product.shipping;
     }

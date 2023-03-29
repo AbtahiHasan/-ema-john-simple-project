@@ -1,5 +1,5 @@
 import { BiCartAdd } from "react-icons/bi";
-const Product = ({product, addToCart, b}) => {
+const Product = ({product, addToCart}) => {
     const {img, name, price, seller, ratings} = product;
     return (
         <article className="border rounded-lg p-3 relative">
