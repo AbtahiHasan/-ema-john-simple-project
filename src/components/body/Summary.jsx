@@ -13,7 +13,7 @@ const Summary = ({cart}) => {
     return (
         <>
             <h2 className='text-[25px] text-center'>Order Summary</h2>
-            <p>Selected Items: {cart.length ? cart.length : 0}</p>
+            <p>Selected Items: {quantity}</p>
             <p>Total Price: ${totalPrice}</p>
             <p>Total Shipping Charge: ${shipingPrice}</p>
             <p>Tax: ${tax}</p>
