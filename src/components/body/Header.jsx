@@ -14,19 +14,17 @@ const Header = () => {
                     {!toggle ? <AiOutlineMenu onClick={() => {setToggle(!toggle)}} className='text-2xl md:hidden block'/> : <AiOutlineClose onClick={() => {setToggle(!toggle)}} className='text-2xl md:hidden block'/>}
                     
                     <ul className='hidden md:flex gap-5'>
-                        <NavLink to="">Home</NavLink>
-                        <NavLink to="">Sevices</NavLink>
-                        <NavLink to="">Contact</NavLink>
-                        <NavLink to="">Tutorial</NavLink>
-                        <NavLink to="">About</NavLink>
+                        <NavLink to="/order">Order</NavLink>
+                        <NavLink to="/order-review">Order Review</NavLink>
+                        <NavLink to="/manage-inventory">Manage Inventory</NavLink>
+                        <NavLink to="/login">Login</NavLink>
                     </ul>
                     {/* responsive  */}
                     <ul className={`block duration-300 md:hidden gap-5 fixed top-[68px] ${!toggle ? 'left-[-100%]' : 'left-0'} bg-black w-full h-screen`}>
-                        <NavLink to="" className='p-3'>Home</NavLink>
-                        <NavLink to="" className='p-3'>Sevices</NavLink>
-                        <NavLink to="" className='p-3'>Contact</NavLink>
-                        <NavLink to="" className='p-3'>Tutorial</NavLink>
-                        <NavLink to="" className='p-3'>About</NavLink>
+                        <NavLink className="p-3" to="/order">Order</NavLink>
+                        <NavLink className="p-3" to="/order-review">Order Review</NavLink>
+                        <NavLink className="p-3" to="/manage-inventory">Manage Inventory</NavLink>
+                        <NavLink className="p-3" to="/login">Login</NavLink>
                     </ul>
                 </section>                
             </nav>        
