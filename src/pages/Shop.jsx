@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { addToDb, getShoppingCart } from "./../utilities/fakedb";
+import { addToDb, getShoppingCart } from "../functions/fakedb";
 import Header from '../components/body/Header';
 import Product from '../components/body/Products'
 import Summary from '../components/body/Summary';

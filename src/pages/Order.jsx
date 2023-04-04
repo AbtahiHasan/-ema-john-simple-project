@@ -1,9 +1,12 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Summary from '../components/body/Summary';
 
 const Order = () => {
+    const cart = useLoaderData()
     return (
         <div>
-            order
+            <Summary cart={cart}/>
         </div>
     );
 };

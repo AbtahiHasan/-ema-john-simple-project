@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import getStoredCart from "../functions/getShopingCart";
 import Home from "../pages/Home";
 import Inventory from "../pages/Inventory";
 import Login from "../pages/Login";
@@ -18,7 +19,8 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/order",
-                element: <Order/>
+                element: <Order/>,
+                loader: getStoredCart
             },
             {
                 path: "/order-review",
