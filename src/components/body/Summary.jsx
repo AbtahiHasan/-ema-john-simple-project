@@ -1,4 +1,5 @@
-const Summary = ({cart}) => {
+import { RiDeleteBin5Fill } from "react-icons/ri";
+const Summary = ({cart, removeCart}) => {
     let totalPrice = 0;
     let shipingPrice = 0;
     let quantity = 0;
@@ -18,6 +19,7 @@ const Summary = ({cart}) => {
             <p>Total Shipping Charge: ${shipingPrice}</p>
             <p>Tax: ${tax}</p>
             <p>Grand Total: ${grandTotal}</p>
+            <button onClick={removeCart} className="bg-[#FF3030] p-[16px] text-[21px] text-white flex justify-between w-full mt-20"><span className="text-[21px]">Clear Carts </span><RiDeleteBin5Fill /></button>
         </section>
     );
 };

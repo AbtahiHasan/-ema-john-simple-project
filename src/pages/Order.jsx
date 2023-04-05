@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import OrderCart from '../components/body/OrderCart';
 import Summary from '../components/body/Summary';
-import { removeFromDb } from '../functions/fakedb';
+import { removeFromDb, deleteShoppingCart } from '../functions/fakedb';
 
 const Order = () => {
     const storedCart = useLoaderData()
@@ -14,6 +14,11 @@ const Order = () => {
         setCart(remining)
         removeFromDb(id)
     }
+
+    const removeCart = () => {
+        setCart([])
+        deleteShoppingCart()
+    }
     return (
         <div className='grid md:grid-cols-4 max-w-[1240px] mx-auto'>
             <div className='col-span-3 mt-20'>
@@ -23,7 +28,7 @@ const Order = () => {
             </div>
             
             
-            <Summary cart={cart}/>
+            <Summary removeCart = {removeCart} cart={cart}/>
         </div>
     );
 };

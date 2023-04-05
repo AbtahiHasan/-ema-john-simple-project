@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { addToDb, getShoppingCart } from "../functions/fakedb";
-import Header from '../components/body/Header';
+import { addToDb, getShoppingCart, deleteShoppingCart} from "../functions/fakedb";
 import Product from '../components/body/Products'
 import Summary from '../components/body/Summary';
+
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -52,8 +52,11 @@ const Shop = () => {
         
     },[products])
 
-    
-    console.log(cart)
+    const removeCart = () => {
+        setCart([])
+        deleteShoppingCart()
+    }
+
     return (
         <>
              <main className='grid md:grid-cols-4 max-w-[1240px] mx-auto mt-[80px]'>
@@ -69,7 +72,7 @@ const Shop = () => {
                     </div>
                 </div>
                
-                    <Summary cart={cart}/>
+                    <Summary removeCart={removeCart} cart={cart}/>
                 
             </main>
         </>
