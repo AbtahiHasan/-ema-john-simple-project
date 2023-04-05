@@ -3,6 +3,8 @@ import { useLoaderData } from 'react-router-dom';
 import OrderCart from '../components/body/OrderCart';
 import Summary from '../components/body/Summary';
 import { removeFromDb, deleteShoppingCart } from '../functions/fakedb';
+import { MdPayment } from "react-icons/md";
+
 
 const Order = () => {
     const storedCart = useLoaderData()
@@ -28,7 +30,7 @@ const Order = () => {
             </div>
             
             
-            <Summary removeCart = {removeCart} cart={cart}/>
+            <Summary removeCart = {removeCart} cart={cart}> <p>Proceed Checkout</p><MdPayment/></Summary>
         </div>
     );
 };

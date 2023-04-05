@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { addToDb, getShoppingCart, deleteShoppingCart} from "../functions/fakedb";
 import Product from '../components/body/Products'
 import Summary from '../components/body/Summary';
-
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -72,7 +72,7 @@ const Shop = () => {
                     </div>
                 </div>
                
-                    <Summary removeCart={removeCart} cart={cart}/>
+                    <Summary removeCart = {removeCart} cart={cart}> <p>Review Order</p><AiOutlineArrowRight/></Summary>
                 
             </main>
         </>
