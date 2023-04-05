@@ -1,8 +1,7 @@
 import { RiDeleteBin5Fill } from "react-icons/ri";
 
-const OrderCart = ({singleCart}) => {
+const OrderCart = ({singleCart, deleleCart}) => {
     const {id, name, price, quantity, img} = singleCart;
-    console.log(singleCart)
     return (
         <section className='mb-[21px] border max-w-[571px] mx-auto p-[8px] rounded-[8px] flex gap-[16px]'>
             <img className='w-[91px] h-[91px] rounded-[6px]' src={img} alt="" />
@@ -12,7 +11,7 @@ const OrderCart = ({singleCart}) => {
                     <p>Price: <span className='text-[#FF9900] text-[15px]'> ${price}</span></p>
                     <p>Quantity: {quantity}</p>
                 </div>
-                <div className="ml-auto w-[55px] h-[55px] rounded-full bg-[#eb57574c] flex justify-center items-center cursor-pointer">
+                <div onClick={() => deleleCart(id)} className="ml-auto w-[55px] h-[55px] rounded-full bg-[#eb57574c] flex justify-center items-center cursor-pointer">
                     <RiDeleteBin5Fill className="text-[#EB5757] text-[27px]" />
                 </div>
             </div>
