@@ -56,7 +56,6 @@ const Shop = () => {
     console.log(cart)
     return (
         <>
-            <Header/>
              <main className='grid md:grid-cols-4 max-w-[1240px] mx-auto mt-[80px]'>
                 <div className="col-span-3">
                     <div className='grid md:grid-cols-3 gap-5 mt-5 mx-3'>
@@ -69,9 +68,9 @@ const Shop = () => {
                         }
                     </div>
                 </div>
-                <div className='mt-5 md:fixed top-16 right-[200px]'>
+               
                     <Summary cart={cart}/>
-                </div>
+                
             </main>
         </>
        
