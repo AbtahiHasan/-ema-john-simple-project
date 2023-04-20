@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import OrderCart from '../components/body/OrderCart';
-import Summary from '../components/body/Summary';
+import OrderCart from '../components/OrderCart';
+import Summary from '../components/Summary';
 import { removeFromDb, deleteShoppingCart } from '../functions/fakedb';
 import { MdPayment } from "react-icons/md";
 

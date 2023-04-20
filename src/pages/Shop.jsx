@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { addToDb, getShoppingCart, deleteShoppingCart} from "../functions/fakedb";
-import Product from '../components/body/Products'
-import Summary from '../components/body/Summary';
+import Product from '../components/Products'
+import Summary from '../components/Summary';
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 const Shop = () => {

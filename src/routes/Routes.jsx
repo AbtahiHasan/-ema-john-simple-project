@@ -7,14 +7,21 @@ import NotFound from "../pages/NotFound";
 import Order from "../pages/Order";
 import OrderReview from "../pages/OrderReview";
 import Shop from "../pages/Shop";
+import Root from "../layout/Root";
+import Signup from "../pages/Signup";
 
 const Routes = createBrowserRouter([
     {
         path: "/",
-        element: <Home/>,
+        element: <Root/>,
+        errorElement: <NotFound/>,
         children: [
             {
                 path: "/",
+                element: <Home/>
+            },
+            {
+                path: "/shop",
                 element: <Shop/>
             },
             {
@@ -35,9 +42,9 @@ const Routes = createBrowserRouter([
                 element: <Login/>
             },
             {
-                path: "*",
-                errorElement: <NotFound/>,
-            }
+                path: "/sign-up",
+                element: <Signup/>
+            },
         ]
     }
 ])
