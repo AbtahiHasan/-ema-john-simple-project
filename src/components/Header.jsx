@@ -14,19 +14,21 @@ const Header = () => {
                     {!toggle ? <AiOutlineMenu onClick={() => {setToggle(!toggle)}} className='text-2xl md:hidden block'/> : <AiOutlineClose onClick={() => {setToggle(!toggle)}} className='text-2xl md:hidden block'/>}
                     
                     <ul className='hidden md:flex gap-5'>
-                        <NavLink to="/shop">Shop</NavLink>
-                        <NavLink to="/order">Order</NavLink>
-                        <NavLink to="/order-review">Order Review</NavLink>
-                        <NavLink to="/manage-inventory">Manage Inventory</NavLink>
-                        <NavLink to="/login">Login</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} to="/shop">Shop</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} to="/order">Order</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} to="/order-review">Order Review</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} to="/manage-inventory">Manage Inventory</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} to="/login">Login</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} to="/sign-up">Sign Up</NavLink>
                     </ul>
                     {/* responsive  */}
                     <ul className={`flex flex-col duration-300 md:hidden gap-5 fixed top-[68px] z-50 ${!toggle ? 'left-[-100%]' : 'left-0'} bg-black w-full h-screen`}>
-                        <NavLink className="p-3" to="/shop">Shop</NavLink>
-                        <NavLink className="p-3" to="/order">Order</NavLink>
-                        <NavLink className="p-3" to="/order-review">Order Review</NavLink>
-                        <NavLink className="p-3" to="/manage-inventory">Manage Inventory</NavLink>
-                        <NavLink className="p-3" to="/login">Login</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} className="p-3" to="/shop">Shop</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} className="p-3" to="/order">Order</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} className="p-3" to="/order-review">Order Review</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} className="p-3" to="/manage-inventory">Manage Inventory</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} className="p-3" to="/login">Login</NavLink>
+                        <NavLink onClick={() => setToggle(!toggle)} className="p-3" to="/sign-up">Sign Up</NavLink>
                     </ul>
                 </section>                
             </nav>        
