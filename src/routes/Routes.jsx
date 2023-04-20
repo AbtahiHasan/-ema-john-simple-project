@@ -9,6 +9,7 @@ import OrderReview from "../pages/OrderReview";
 import Shop from "../pages/Shop";
 import Root from "../layout/Root";
 import Signup from "../pages/Signup";
+import PrivateRoutes from "../private/PrivateRoutes";
 
 const Routes = createBrowserRouter([
     {
@@ -26,16 +27,16 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/order",
-                element: <Order/>,
+                element: <PrivateRoutes><Order/></PrivateRoutes>,
                 loader: getStoredCart
             },
             {
                 path: "/order-review",
-                element: <OrderReview/>
+                element: <PrivateRoutes><OrderReview/> </PrivateRoutes>
             },
             {
                 path: "/manage-inventory",
-                element: <Inventory/>
+                element:  <PrivateRoutes><Inventory/></PrivateRoutes>
             },
             {
                 path: "/login",

@@ -1,12 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
+import { useAuth } from '../context/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Signup = () => {
+    const {createUser} = useAuth()
+    const hendleForm = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value
+
+        if(!name || !email || !password || !confirmPassword) {
+            return
+        } 
+        
+        if(password.length < 6) {
+            return
+        }
+
+        createUser(email, password) 
+        .then (() => {
+            updateProfile(auth, {
+                displayName: name
+            })
+        }) 
+        .catch(error => {
+            console.log(error)
+        })
+    }
     return (
         <section className='border rounded-xl p-[17px] max-w-[500px] mx-auto mt-1 shadow-3xl'>
             <h2 className='text-center text-2xl'>Sign Up</h2>
-            <form>
+            <form onSubmit={hendleForm}>
                 <div className='flex flex-col my-3'>
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" id="name" className='border rounded p-2 text-base' autoComplete='off' placeholder='Name' />
@@ -21,9 +50,9 @@ const Signup = () => {
                 </div> 
                 <div className='flex flex-col my-3'>
                     <label htmlFor="confirm-password">Confirm Password</label>
-                    <input type="password" name="confirm-password" id="confirm-password" className='border rounded p-2 text-base' autoComplete='off' placeholder='Confirm Password' />
+                    <input type="password" name="confirmPassword" id="confirm-password" className='border rounded p-2 text-base' autoComplete='off' placeholder='Confirm Password' />
                 </div>
-                <button type='submit' className='bg-[#ff99004c] w-full p-4 text-[21px] rounded mt-[10px]'>Sign Up</button>         
+                <button type='submit' className='bg-[#ff99004c] w-full p-2 text-[19px] rounded mt-[10px]'>Sign Up</button>         
                 <p className='mt-[8px] text-center'>Already have an account? <Link to="/login" className='text-[#FF9900]'>Login</Link></p>     
                 <div className='flex items-center justify-between mt-[15px] '>
                     <hr className='w-[45%] bg-[#95A0A7]'/>
