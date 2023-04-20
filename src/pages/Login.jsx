@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useAuth } from '../context/AuthProvider';
 
 const Login = () => {
-    const {signIn} = useAuth()
+    const {signIn, signInWithGoogle} = useAuth()
 
     const hendleForm = (e) => {
         e.preventDefault()
@@ -45,7 +45,7 @@ const Login = () => {
                 <p className='text-[#95A0A7]'>Or</p>
                 <hr className='w-[45%] bg-[#95A0A7]'/>
             </div>   
-            <button className='p-[10px] border rounded w-full flex justify-center items-center gap-[6px] mt-[33px]'><FcGoogle className='text-[32px]'/><span>Continue with Google</span></button>
+            <button onClick={signInWithGoogle} className='p-[10px] border rounded w-full flex justify-center items-center gap-[6px] mt-[33px]'><FcGoogle className='text-[32px]'/><span>Continue with Google</span></button>
         </form>
     </section>
     );

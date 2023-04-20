@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { useAuth } from '../context/AuthProvider';
-import { updateProfile } from 'firebase/auth';
+import { sendEmailVerification, updateProfile } from 'firebase/auth';
 
 const Signup = () => {
-    const {createUser, user} = useAuth()
+    const {createUser, user, signInWithGoogle} = useAuth()
     const hendleForm = (e) => {
         e.preventDefault()
         const form = e.target
@@ -26,15 +26,29 @@ const Signup = () => {
         }
 
         createUser(email, password) 
-        .then (() => {
-            updateProfile(user, {
+        .then ((result) => {
+            updateProfile(result.user, {
                 displayName: name
             })
+            sendEmailVerificationLink(result.user)
+           
         }) 
         .catch(error => {
             console.log(error)
         })
     }
+
+    const sendEmailVerificationLink = (user) => {
+        sendEmailVerification(user)
+        .then ((result) => {
+            console.log(result.user)
+        }) 
+        .catch(error => {
+            console.log(error)
+        })
+    }
+
+
     return (
         <section className='border rounded-xl p-[17px] max-w-[500px] mx-auto mt-1 shadow-3xl'>
             <h2 className='text-center text-2xl'>Sign Up</h2>
@@ -62,7 +76,7 @@ const Signup = () => {
                     <p className='text-[#95A0A7]'>Or</p>
                     <hr className='w-[45%] bg-[#95A0A7]'/>
                 </div>   
-                <button className='p-[10px] border rounded w-full flex justify-center items-center gap-[6px] mt-[20px]'><FcGoogle className='text-[32px]'/><span>Continue with Google</span></button>
+                <button onClick={signInWithGoogle} className='p-[10px] border rounded w-full flex justify-center items-center gap-[6px] mt-[20px]'><FcGoogle className='text-[32px]'/><span>Continue with Google</span></button>
             </form>
         </section>
     );
