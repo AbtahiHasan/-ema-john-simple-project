@@ -72,7 +72,9 @@ const Shop = () => {
                     </div>
                 </div>
                
-                    <Summary removeCart = {removeCart} cart={cart}> <p>Review Order</p><AiOutlineArrowRight/></Summary>
+
+                <Summary removeCart = {removeCart} cart={cart}> <p>Review Order</p><AiOutlineArrowRight/></Summary>
+               
                 
             </main>
         </>

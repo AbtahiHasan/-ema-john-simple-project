@@ -12,7 +12,7 @@ const Summary = ({cart, removeCart, children}) => {
     const tax = totalPrice * 7 / 100;
     const grandTotal = totalPrice + shipingPrice + tax;
     return (
-        <section className="bg-[#ff99004c] rounded-[8px] p-5 h-[60vh] max-w-[500px] right-0 md:fixed top-18">
+        <section className="sticky top-[75px] bg-[#ff99004c] rounded-[8px] p-5 h-[60vh] max-w-[500px] ">
             <h2 className='text-[25px] text-center'>Order Summary</h2>
             <p>Selected Items: {quantity}</p>
             <p>Total Price: ${totalPrice}</p>

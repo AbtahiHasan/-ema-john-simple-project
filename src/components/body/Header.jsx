@@ -6,8 +6,8 @@ import logo from './../../assets/images/Logo.svg';
 const Header = () => {
     const [toggle, setToggle] = useState(false)
     return (        
-            <nav className='bg-primary text-white'>                
-                <section className='max-w-[1240px] mx-auto flex items-center justify-between p-4'>
+            <nav className='bg-primary text-white z-50 sticky top-0'>                
+                <section className='headerContainer'>
                     <Link to="/">
                         <img src={logo} alt="logo" />
                     </Link>
@@ -20,7 +20,7 @@ const Header = () => {
                         <NavLink to="/login">Login</NavLink>
                     </ul>
                     {/* responsive  */}
-                    <ul className={`flex flex-col duration-300 md:hidden gap-5 fixed top-[68px] ${!toggle ? 'left-[-100%]' : 'left-0'} bg-black w-full h-screen`}>
+                    <ul className={`flex flex-col duration-300 md:hidden gap-5 fixed top-[68px] z-50 ${!toggle ? 'left-[-100%]' : 'left-0'} bg-black w-full h-screen`}>
                         <NavLink className="p-3" to="/order">Order</NavLink>
                         <NavLink className="p-3" to="/order-review">Order Review</NavLink>
                         <NavLink className="p-3" to="/manage-inventory">Manage Inventory</NavLink>
