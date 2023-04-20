@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Signup = () => {
-    const {createUser, auth} = useAuth()
+    const {createUser, user} = useAuth()
     const hendleForm = (e) => {
         e.preventDefault()
         const form = e.target
@@ -27,7 +27,7 @@ const Signup = () => {
 
         createUser(email, password) 
         .then (() => {
-            updateProfile(auth, {
+            updateProfile(user, {
                 displayName: name
             })
         }) 
