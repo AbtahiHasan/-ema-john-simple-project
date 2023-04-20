@@ -31,10 +31,10 @@ const Signup = () => {
                 displayName: name
             })
             sendEmailVerificationLink(result.user)
-           
+           form.reset()
         }) 
         .catch(error => {
-            console.log(error)
+            
         })
     }
 

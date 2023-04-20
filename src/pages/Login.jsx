@@ -21,9 +21,11 @@ const Login = () => {
         }
 
         signIn(email, password) 
-        .then (() => {}) 
+        .then (() => {
+            form.reset()
+        }) 
         .catch(error => {
-            console.log(error)
+            
         })
     }
     return (
