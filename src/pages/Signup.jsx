@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Signup = () => {
-    const {createUser} = useAuth()
+    const {createUser, auth} = useAuth()
     const hendleForm = (e) => {
         e.preventDefault()
         const form = e.target
@@ -19,6 +19,9 @@ const Signup = () => {
         } 
         
         if(password.length < 6) {
+            return
+        }
+        if(!password === confirmPassword) {
             return
         }
 

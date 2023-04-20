@@ -1,11 +1,35 @@
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
+import { useAuth } from '../context/AuthProvider';
 
 const Login = () => {
+    const {signIn} = useAuth()
+
+    const hendleForm = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const email = form.email.value;
+        const password = form.password.value
+
+
+        if(!email || !password) {
+            return
+        } 
+        
+        if(password.length < 6) {
+            return
+        }
+
+        signIn(email, password) 
+        .then (() => {}) 
+        .catch(error => {
+            console.log(error)
+        })
+    }
     return (
         <section className='border rounded-xl p-[25px] max-w-[500px] mx-auto mt-10 shadow-3xl'>
         <h2 className='text-center text-3xl'>Login</h2>
-        <form>
+        <form onSubmit={hendleForm}>
             <div className='flex flex-col my-4'>
                 <label htmlFor="email" className='text-[17px]'>Email</label>
                 <input type="email" name="email" id="email" className='border rounded p-2 text-base' autoComplete='off' placeholder='email' />
